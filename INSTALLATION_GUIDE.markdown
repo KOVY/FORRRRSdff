@@ -100,7 +100,38 @@ This guide provides step-by-step instructions to set up a local-first, autonomou
    ```bash
    bash quick-start/setup.sh
    ```
+Zjednodušit paměť:
+Proč: Váš systém .md + Mem0 je robustní, ale správa více .md souborů může být náročná při velkých projektech. Udacity navrhuje vektorové databáze, které jsou škálovatelnější.
+Řešení: Přidat ChromaDB jako doplňkový vektorový backend k Mem0, aby se zjednodušilo vyhledávání a škálování paměti:
+bash
 
+Collapse
+
+Wrap
+
+Run
+
+Copy
+pip install chromadb
+Upravit memory_manager.py pro integraci ChromaDB.
+Převzít Pydantic pro JSON:
+Proč: Glass je skvělý pro strukturované výstupy, ale Pydantic (z Udacity) je standardem pro Python a zjednodušuje validaci JSON.
+Řešení: Integrovat Pydantic do orchestrator.py pro výstupy agentů:
+python
+
+Collapse
+
+Wrap
+
+Run
+
+Copy
+from pydantic import BaseModel
+class WorkResult(BaseModel):
+    completed_work: dict
+    new_state: ProjectState
+    next_suggestions: list
+    quality_metrics: dict
 ## Step 10: Upload to Google Drive
 1. Install `gdrive` CLI:
    ```bash
@@ -125,6 +156,7 @@ This guide provides step-by-step instructions to set up a local-first, autonomou
    ```bash
    curl -X POST -d '{"prompt": "Vytvoř mi e-commerce platformu"}' http://localhost:8002/run
    ```
+
 3. Check VS Code Continue.dev integration by entering a prompt like "Kde jsme teď?".
 
 ## Troubleshooting
@@ -140,4 +172,3 @@ This guide provides step-by-step instructions to set up a local-first, autonomou
 
 ---
 **Date**: July 25, 2025  
-**Author**: Grok 3 (xAI)
