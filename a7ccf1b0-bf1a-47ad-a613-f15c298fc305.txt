@@ -1,0 +1,34 @@
+```
+# LLM Configuration
+VLLM_ENDPOINT=http://localhost:8000/v1
+VLLM_CODER_ENDPOINT=http://localhost:8001/v1
+ORCHESTRATOR_MODEL=qwen2.5:70b
+CODER_MODEL=qwen2.5-coder
+API_KEY=<YOUR_VLLM_API_KEY>  # Generate from vLLM if required, or leave as 'vllm' for local
+
+# Graph-Code Configuration
+MEMGRAPH_HOST=localhost
+MEMGRAPH_PORT=7687
+REPO_PATH=./project
+GRAPH_CODE_API_KEY=<YOUR_GRAPH_CODE_KEY>  # Optional, for future API access if needed
+
+# FastAPI Configuration
+FASTAPI_HOST=0.0.0.0
+FASTAPI_PORT=8002
+
+# Memory Configuration
+MEMORY_PATH=./project_memory
+
+# Robocorp (MCP-B) Configuration
+ROBOCORP_API_KEY=<YOUR_ROBOCORP_API_KEY>  # Obtain from Robocorp Control Room
+
+# Deployment Configuration
+RAILWAY_TOKEN=<YOUR_RAILWAY_TOKEN>  # For Railway deployment
+VERCEL_TOKEN=<YOUR_VERCEL_TOKEN>    # For Vercel deployment
+
+# WeSQL Configuration
+WESQL_CONNECTION_STRING=sqlite:///wesql.db  # Default for local WeSQL
+
+# Google Drive Configuration
+GDRIVE_FOLDER_ID=<YOUR_GOOGLE_DRIVE_FOLDER_ID>  # ID of "Autonomous_Development_Workflow" folder
+```
